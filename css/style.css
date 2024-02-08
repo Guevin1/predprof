@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&family=Press+Start+2P&display=swap');
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    overflow-x: hidden;
+}
+h1,h2,h3,h4,h5,h6,p,a {
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-decoration: none;
+}
+
+h1.main {
+    padding: 50px;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+}
+label.sea:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+label.sea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+input.sea[type="radio"] {
+    display: none;
+}
+input.sea[type="radio"]:checked + label.sea {
+    background: rgba(255, 255, 255, 0.3);
+}
+td.active {
+    outline: rgba(75, 75, 75, 0.514) solid 2px;
+}
+td.bullet {
+    background: url("../images/bullet.svg") 0% 0% / cover;
+    pointer-events: none;
+    animation: size 5s infinite;
+}
+canvas#sea-block {
+    background: #0064ff;
+    z-index: -1;
+    position: absolute;
+}
+form.sea {
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.title {
+    text-align: center;
+    color: white;
+
+    h1 {
+        font-family: 'Oxanium', sans-serif;
+        font-size: 96px;
+        color: white;
+    }
+    h2 {
+        font-size: 20px;
+        color: white;
+    }
+}
+div.icebergs {
+    width: 40%;
+    height: 100vh;
+    position: relative;
+}
+div.icebergs .iceberg {
+    position: absolute;
+}
+button.auth {
+    background: url("../images/ship2.svg");
+    background-size: auto;
+    outline: none;
+    border: none;
+    background-size: cover;
+    height: 100px;
+    width: 330px;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+button.registation {
+    background: url("../images/shipw.svg");
+    background-size: auto;
+    outline: none;
+    border: none;
+    background-size: cover;
+    height: 100px;
+    width: 330px;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+.choice {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 200px 0;
+}
+
+div.abs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+div.auth {
+    display: flex;
+    width: 300vw;
+    transform: translate(0vw);
+    transition: 1s cubic-bezier(.6,-0.28,.74,.05);
+    overflow: hidden;
+}
+div.auth div {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div.auth div#regD, div.auth div#authD {
+    background: url("../images/island2.svg") no-repeat;
+    background-position: 50%;
+    background-size: 400px;
+}
+div.auth div#regD {
+    background: url("../images/island.svg") no-repeat;
+    background-position: 50%;
+    background-size: 400px;
+
+}
+
+div.auth div form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form.boauth input {
+    width: 300px;
+    margin: 14px;
+    border: none;
+    height: 35px;
+    border-radius: 5px;
+    background: #d8d8d887;
+    outline: none;
+    padding: 0 10px;
+    font-family: 'Press Start 2P', sans-serif;
+}
+button.back {
+    display: flex;
+    align-items: center;
+    font-family: 'Press Start 2P', sans-serif;
+    border: none;
+    border-radius: 10px;
+    background: #ecececba;
+    padding: 10px;
+}
+form.boauth input[type="submit"] {
+    background: #ffffffcf;
+    font-family: 'Press Start 2P', sans-serif;
+    border-radius: 5px;
+}
+div.box {
+    background: #b5b5b56b;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div.main {
+    background: white;
+    width: 90%;
+    height: 85%;
+    border-radius: 20px;
+}
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    .name {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        span {
+            font-size: 45px;
+            margin: 10px;
+        }
+    }
+
+    nav {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    div.avatar {
+        display: flex;
+
+        span {
+            padding: 15px;
+            background: #53CBFF;
+            border-radius: 15px;
+            color: white;
+        }
+        p {
+            display: flex;
+            align-items: center;
+        }
+        a {
+            margin: 15px;
+        }
+    }
+}
+
+@keyframes size {
+    from {
+        scale: 1;
+    }
+    50%{
+        scale: 1.05;
+    }
+    to {
+        scale: 1;
+    }
+    
+}

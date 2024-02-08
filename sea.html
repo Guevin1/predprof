@@ -1,0 +1,78 @@
+
+<link rel="stylesheet" href="css/style.css">
+<body style="height: 100vh;">
+    <canvas id="sea-block" width="600" height="400">
+        Извините, ваш браузер нет поддерживает&lt;canvas&gt; элемент.
+    </canvas>
+    <div class="icebergs"></div>
+    <canvas id="land" width="300" height="300">
+        Извините, ваш браузер нет поддерживает&lt;canvas&gt; элемент.
+    </canvas>
+</body>
+  
+<script src="sea.js"></script>
+<script src="multigeometry.js"></script>
+<script>
+    var land = document.getElementById("land")
+    var width = land.clientWidth
+    var height = land.clientHeight
+    var ctx = land.getContext("2d")
+    var points = [];
+
+    for (var ind = 0; ind < 50; ind++) {
+        w = Math.random() * width
+        h = Math.random() * height
+        points.push([w,h]);
+        // ctx.arc(w,h,2,0,2*Math.PI)
+    }
+
+    ctx.beginPath()
+    var hull = convexHull(points);
+    ctx.moveTo(points[0][0],points[0][1])
+    for (let index = 1; index < hull.length; index++) {
+        let pos = hull[index];
+        ctx.lineTo(pos[0],pos[1])
+        console.log(pos)
+    }
+        ctx.lineTo(points[0][0],points[0][1])
+    ctx.stroke()
+</script>
+
+<script>
+    // var icebergs = document.querySelector(".icebergs")
+    // var max = getRndInteger(1,5)
+    // for (let i = 0; i < max; i++) {
+    //     var iceberg = document.createElement("canvas")
+    //     var width = getRndInteger(40,100)
+    //     var height = getRndInteger(40,100)
+    //     iceberg.width = width
+    //     iceberg.height = height
+    //     iceberg.className = "iceberg"
+    //     let y = getRndInteger(height/2,icebergs.clientHeight-height/2)
+    //     let x = getRndInteger(width/2,icebergs.clientWidth-width/2)
+    //     iceberg.style.top = y
+    //     iceberg.style.left = x
+    //     var ctx = iceberg.getContext("2d")
+    //     var points = [];
+    //     for (var ind = 0; ind < 10; ind++) {
+    //         points.push([Math.random() * width, Math.random() * height]);
+    //     }
+    //     var hull = convexHull(points);
+    //     ctx.beginPath()
+        
+    //     ctx.moveTo(points[0][0],points[0][1])
+    //     for (let index = 1; index < hull.length; index++) {
+    //         let pos = hull[index];
+    //         ctx.lineTo(pos[0],pos[1])
+    //         console.log(pos)
+    //     }
+    //     ctx.lineTo(points[0][0],points[0][1])
+    //     ctx.fillStyle = "#deebff"
+    //     ctx.strokeStyle = "#c8ddff"
+    //     ctx.lineWidth = 2
+    //     ctx.stroke()
+    //     ctx.fill()
+    //     icebergs.appendChild(iceberg)
+    // }
+    
+</script>
